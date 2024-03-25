@@ -49,10 +49,12 @@ const BottomTab = () => {
           href={item.href}
           className={`flex flex-col items-center justify-center w-full py-2 ${
             activeTab === item.href ? "text-green-600" : "text-gray-500"
-          } ${activeTab === item.href ? "bg-gray-100" : ""} rounded-t-lg`}
+          } ${activeTab === item.href ? "bg-gray-100" : ""} ${
+            item.name === "Profile" ? "rounded-b-lg" : "rounded-t-lg"
+          }`}
           onClick={() => handleTabClick(item.href)}
         >
-          <item.icon className="w-8 h-8 mb-1" /> {/* Adjust icon size */}
+          <item.icon className="w-6 h-6 mb-1" /> {/* Adjusted icon size */}
           <span className="text-xs">{item.name}</span>
         </a>
       ))}
