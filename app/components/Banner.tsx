@@ -11,7 +11,7 @@ const Banner = () => {
       {/* Background Image */}
       <div className="bg-banner-image h-56 bg-cover bg-center relative rounded">
         {/* Green Overlay */}
-        <div className="absolute inset-0 bg-[#1f9755] opacity-80 "></div>
+        <div className="absolute inset-0 bg-[#1fa45b]  opacity-70 "></div>
         {/* Fancy Text */}
         <div className="h-full flex flex-col items-center justify-center relative z-10">
           <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-shadow-md">
