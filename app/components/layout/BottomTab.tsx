@@ -14,7 +14,7 @@ const navigation = [
   },
   {
     name: "All Duas",
-    href: "/all-duas",
+    href: "/duas/list",
     icon: MdSpaceDashboard,
   },
   {

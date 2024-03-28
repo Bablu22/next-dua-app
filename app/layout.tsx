@@ -1,10 +1,19 @@
 import Layout from "@components/layout/Layout";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Bengali } from "next/font/google";
+import "react-h5-audio-player/lib/styles.css";
 import "react-loading-skeleton/dist/skeleton.css";
-import "./globals.css";
+
 import NextTopLoader from "nextjs-toploader";
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const tiro = Noto_Sans_Bengali({
+  weight: "400",
+  subsets: ["bengali"],
+  variable: "--font-tiro",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.variable} ${tiro.variable}`}
+        suppressHydrationWarning
+      >
         <NextTopLoader color="#16a34a" showSpinner={false} />
         <Layout>{children}</Layout>
       </body>

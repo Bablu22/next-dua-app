@@ -9,7 +9,7 @@ interface Props {
 const DuaCard = ({ dua, letter }: Props) => {
   return (
     <Link
-      href="/dua/id"
+      href={`/duas/${dua.id}`}
       className="col-span-1 p-4 bg-white flex rounded-lg shadow-sm"
     >
       <div

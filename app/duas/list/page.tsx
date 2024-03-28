@@ -1,6 +1,7 @@
 import { prisma } from "@/prisma";
-import DuaCard from "./_components/DuaCard";
+
 import { Dua } from "@prisma/client";
+import DuaCard from "../_components/DuaCard";
 
 const fetchAllDuas = async () => {
   try {

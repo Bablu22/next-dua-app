@@ -21,17 +21,17 @@ const navigation = [
   },
   {
     name: "All Duas",
-    href: "/alldua",
+    href: "/duas/list",
     icon: MdSpaceDashboard,
   },
   {
     name: "Memories",
-    href: "#",
+    href: "/memories",
     icon: FaLightbulb,
   },
   {
     name: "Bookmarks",
-    href: "#",
+    href: "/bookmarks",
     icon: FaBookmark,
   },
   {
