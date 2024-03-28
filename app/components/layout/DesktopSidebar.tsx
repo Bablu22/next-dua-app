@@ -1,3 +1,5 @@
+"use client";
+
 import logo from "@/public/dua-logo.svg";
 import Image from "next/image";
 
@@ -7,17 +9,19 @@ import { TiHome } from "react-icons/ti";
 import { TbIrregularPolyhedronPlus } from "react-icons/tb";
 import { ImLeaf } from "react-icons/im";
 import { IoBookSharp } from "react-icons/io5";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   {
     name: "Home",
-    href: "#",
+    href: "/",
     icon: TiHome,
     current: true,
   },
   {
     name: "All Duas",
-    href: "#",
+    href: "/alldua",
     icon: MdSpaceDashboard,
   },
   {
@@ -52,6 +56,7 @@ function classNames(...classes: any) {
 }
 
 const DesktopSidebar = () => {
+  const pathName = usePathname();
   return (
     <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col ml-10 my-5  rounded-2xl">
       {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -69,10 +74,10 @@ const DesktopSidebar = () => {
               <ul role="list" className="space-y-2">
                 {navigation.map((item) => (
                   <li key={item.name}>
-                    <a
+                    <Link
                       href={item.href}
                       className={classNames(
-                        item.current
+                        pathName === item.href
                           ? "bg-gray-50 text-green-600 border-l-4 border-green-600"
                           : "text-gray-700",
                         "group flex items-center p-3 rounded-md text-sm font-semibold bg-gray-50 transition-transform duration-300 ease-in-out transform hover:scale-105"
@@ -81,7 +86,7 @@ const DesktopSidebar = () => {
                       <span className="flex items-center justify-center w-8 h-8 bg-gray-light rounded-full">
                         <item.icon
                           className={classNames(
-                            item.current
+                            pathName === item.href
                               ? "text-green-600"
                               : "text-gray-400 group-hover:text-green-600",
                             "h-5 w-5"
@@ -90,7 +95,7 @@ const DesktopSidebar = () => {
                         />
                       </span>
                       <span className="ml-2">{item.name}</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

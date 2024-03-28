@@ -65,19 +65,17 @@ const Items = () => {
               <Image
                 src={project.icon}
                 alt={project.name}
-                width={32}
-                height={32}
-                priority
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
               />
             </div>
             <div className="flex flex-1 items-center justify-between truncate rounded-r-md  border-gray-200 bg-white">
               <div className="flex-1 truncate px-4 py-2 text-sm">
-                <a
-                  href={project.href}
-                  className="font-medium text-lg text-gray-700 hover:text-gray-600"
-                >
+                <div className="font-medium text-lg text-gray-700 hover:text-gray-600">
                   {project.name}
-                </a>
+                </div>
               </div>
             </div>
           </Link>
