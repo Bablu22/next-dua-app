@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import iconImage from "@/public/icons/comming.svg";
 
-const MemoriesPage = () => {
+const BookmarksPage = () => {
   return (
     <div className="bg-white p-8 sm:p-10 rounded-lg shadow-md mb-20 min-h-full flex flex-col justify-center items-center">
       <div className="text-center">
@@ -28,4 +28,4 @@ const MemoriesPage = () => {
   );
 };
 
-export default MemoriesPage;
+export default BookmarksPage;
