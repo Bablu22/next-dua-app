@@ -2,17 +2,9 @@ import { prisma } from "@/prisma";
 import { notFound } from "next/navigation";
 import DuaDescriptionCard from "../_components/DuaDescriptionCard";
 
-const fetchDua = async (id: number) => {
-  try {
-    const dua = await prisma.dua.findUnique({
-      where: {
-        id: id as number,
-      },
-    });
-    return dua;
-  } catch (error) {
-    return null;
-  }
+const fetchDua = async () => {
+  const dua = await prisma.dua.findMany({});
+  return dua;
 };
 
 interface Props {
@@ -20,7 +12,9 @@ interface Props {
 }
 
 const DuaPage = async ({ params }: Props) => {
-  const dua = await fetchDua(Number(params.id));
+  const alldua = await fetchDua();
+
+  const dua = alldua.find((dua) => dua.id === Number(params.id));
 
   if (!dua) {
     notFound();
