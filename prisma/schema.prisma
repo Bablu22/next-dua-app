@@ -9,9 +9,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "sqlite"
-  url       = "file:./dev.db"
-  directUrl = "sqlite:./dev.db"
+  provider = "sqlite"
+  url      = "./dev.db"
 }
 
 model Category {
