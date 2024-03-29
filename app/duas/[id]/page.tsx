@@ -7,10 +7,21 @@ interface Props {
 }
 
 const fetchDua = async (id: number) => {
-  const dua = await fetch(
-    `https://dua-app-eight.vercel.app/api/dua/${id}`
-  ).then((res) => res.json());
-  return dua;
+  try {
+    const response = await fetch(
+      `https://dua-app-eight.vercel.app/api/dua/${id}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const dua = await response.json();
+    return dua;
+  } catch (error) {
+    console.error("Error fetching dua:", error);
+    throw error;
+  }
 };
 
 const DuaPage = async ({ params }: Props) => {
