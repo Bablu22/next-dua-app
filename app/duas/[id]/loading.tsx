@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-const Loading = () => {
+const DuaCardLoading = () => {
   return (
     <>
       {[1, 2].map((i) => (
@@ -40,4 +40,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default DuaCardLoading;

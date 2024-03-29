@@ -1,16 +1,51 @@
+"use client";
 import { Dua } from "@prisma/client";
 import duaCardIcon from "@/public/icons/duacard.svg";
 import Image from "next/image";
 import { PLayer } from "./Player";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import DuaCardLoading from "../[id]/loading";
+
 interface Props {
-  dua: Dua;
   id: number;
 }
 
-const DuaDescriptionCard = ({ dua, id }: Props) => {
+const DuaDescriptionCard = ({ id }: Props) => {
+  const [dua, setDua] = useState<Dua | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchDua = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.get(`/api/dua/${id}`);
+        setDua(res.data);
+      } catch (error) {
+        setError("Failed to fetch Dua. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDua();
+  }, [id]);
+
+  if (loading) {
+    return <DuaCardLoading />;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!dua) {
+    return null;
+  }
+
   return (
     <div className="bg-white p-4 sm:p-8 rounded-lg shadow-md mb-20">
-      <div className="flex flex-col gap-7 rounded-lg border  px-4 py-6 sm:px-8">
+      <div className="flex flex-col gap-7 rounded-lg border px-4 py-6 sm:px-8">
         <div className="flex items-center gap-2.5">
           <Image src={duaCardIcon} alt="Allah" width={30} height={30} />{" "}
           <span className="text-green-600 text-lg font-semibold">
