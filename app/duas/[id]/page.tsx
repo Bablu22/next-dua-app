@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import DuaDescriptionCard from "../_components/DuaDescriptionCard";
 
 const fetchDua = async (id: number) => {
-  const dua = await prisma.dua.findFirst({
+  const dua = await prisma.dua.findUnique({
     where: {
       id: id as number,
     },
